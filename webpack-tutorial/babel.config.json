@@ -1,0 +1,6 @@
+// 最新のjsを読み込めるようにresetの設定が必要
+{
+    "presets" : [
+        "@babel/preset-env"
+    ]
+}
