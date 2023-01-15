@@ -48,3 +48,4 @@ module.exports = {
             template: path.resolve( __dirname, "source", "index.html" )
         } ) ],
 };
+

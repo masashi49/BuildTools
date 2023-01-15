@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import { getUsers } from "./common/usersAPI";
 import "./style.css"; // ローダーを設定しないと読み込まない
 import "./style.scss"; // scss用のローダーが必要
+import moment from "moment"
 import { hello } from "./sub";
 console.log( hello() )
 
