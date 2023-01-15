@@ -1,6 +1,8 @@
-// 最新のjsを読み込めるようにresetの設定が必要
+// 最新のjsを読み込めるようにpresetの設定が必要
+// プリセット : 「初期設定」「デフォルト設定」などと同義
 {
     "presets" : [
-        "@babel/preset-env"
+        "@babel/preset-env" ,
+        "@babel/preset-react" // reactを利用できるようにする 
     ]
 }

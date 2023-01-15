@@ -36,7 +36,8 @@ module.exports = {
                 test: /\.scss$/,
                 use: [ "style-loader", "css-loader", "sass-loader" ]
             }, {
-                //最新のjsをローダー アロー関数とか
+                //最新のjs用のローダー 
+                // babelはjsコンパイラおよびトランスパイラ
                 test: /\.js$/,
                 use: [ "babel-loader" ]
             }
