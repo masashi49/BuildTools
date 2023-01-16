@@ -19,9 +19,17 @@ function App () {
         } );
     }, [] )
 
+    const getUserModule = () => import( "./common/usersAPIDynamic" )
+    const dynamicImports = () => {
+        getUserModule().then( ( { getUsersDynamic } ) => {
+            getUsersDynamic().then( json => console.log( json ) )
+        } )
+    }
+
     return (
         <div>
             <button onClick={ () => setState( "clicked" ) }>{ state }</button>
+            <button onClick={ dynamicImports }>Dynamic imports</button>
         </div>
     )
 }

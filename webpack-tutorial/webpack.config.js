@@ -12,7 +12,7 @@ module.exports = {
         path: `${ __dirname }/dist`, // ルートディレクトリ/dist をみてね
         // path: path.resolve(__dirname,"build")でも同じ。
 
-        filename: "bundle.js" //の名前で出力してね
+        filename: "[name].js", //の名前で出力してね
     },
 
 
@@ -43,9 +43,13 @@ module.exports = {
             }
         ]
     },
+    optimization: {
+        splitChunks: {
+            chunks: 'initial',
+        }
+    },
     plugins: [
         new HtmlWebpackPlugin( {
             template: path.resolve( __dirname, "source", "index.html" )
         } ) ],
 };
-
