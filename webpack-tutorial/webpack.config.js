@@ -29,7 +29,12 @@ module.exports = {
                 // cssをモジュールとして扱うために、css用のローダー
                 test: /\.css$/,
                 //use: [ "css-loader", "style-loader" ] // この並び順じゃないと動かない！ローダーは上から、左からロードされる。
-                use: [ "style-loader", "css-loader", "sass-loader" ]
+                use: [ {
+                    loader: "style-loader",
+                    options: { injectType: "lazySingletonStyleTag" },
+                }, "css-loader",
+                    "sass-loader" ]
+                ,
             },
             {
                 // scssをモジュールとして扱うために、css用のローダー

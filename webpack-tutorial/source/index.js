@@ -19,7 +19,7 @@ function App () {
         } );
     }, [] )
 
-    const getUserModule = () => import( "./common/usersAPIDynamic" )
+    const getUserModule = () => import(/* webpackChunkName: "DynamicAPI" */ "./common/usersAPIDynamic" ) // コメントアウトでチャンクのjsファイル名を決めることができる。DynamicAPI.jsとなる
     const dynamicImports = () => {
         getUserModule().then( ( { getUsersDynamic } ) => {
             getUsersDynamic().then( json => console.log( json ) )
