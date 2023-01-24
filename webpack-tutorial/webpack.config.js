@@ -36,7 +36,23 @@ module.exports = {
                     {
                         loader: MiniCssExtractPlugin.loader, // cssを別ファイルにする
                     },
-                    "css-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            // url: false,  // false : 画像などのurlは、cssに書いたままが出力される
+                            // 特定の画像のみフィルタリングも可能
+                            url: {
+                                filter: ( url, resourcePath ) => {
+                                    // `cat.png`のURLを処理しない
+                                    if ( url.includes( "cat.jpg" ) ) {
+                                        return false;
+                                    }
+                                    console.log( url )
+                                    return true;
+                                },
+                            }
+                        },
+                    },
                     "sass-loader" ]
                 // buildが本番なら、cssをjsから抜き出すならこうする
                 //  use: [
@@ -73,3 +89,6 @@ module.exports = {
 
     ],
 };
+
+// css-loaderドキュメント
+// https://runebook.dev/ja/docs/webpack/loaders/css-loader
