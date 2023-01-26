@@ -50,7 +50,20 @@ module.exports = {
                                     console.log( url )
                                     return true;
                                 },
-                            }
+                            },
+                            import: {
+                                filter: ( url, media, resourcePath ) => {
+                                    // resourcePath-cssファイルへのパス
+
+                                    // `style.css`インポートを処理しません
+                                    if ( url.includes( "style.css" ) ) {
+                                        return false;
+                                    }
+
+                                    return true;
+                                },
+                            },
+                            // module: false
                         },
                     },
                     "sass-loader" ]
