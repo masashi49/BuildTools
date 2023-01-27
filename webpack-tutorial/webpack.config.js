@@ -63,16 +63,30 @@ module.exports = {
                                     return true;
                                 },
                             },
-                            // module: false
                         },
                     },
-                    "sass-loader" ]
+                    "sass-loader" ],
                 // buildが本番なら、cssをjsから抜き出すならこうする
                 //  use: [
                 //      devMode ? "style-loader" : MiniCssExtractPlugin.loader,
                 //     "css-loader",
                 //     "sass-loader" ]
+                // options: {
+                //     module: {
+                //         mode: ( resourcePath ) => {
+                //             console.log( resourcePath )
+                //             if ( /pure.css$/i.test( resourcePath ) ) {
+                //                 return "pure";
+                //             }
 
+                //             if ( /global.css$/i.test( resourcePath ) ) {
+                //                 return "global";
+                //             }
+
+                //             return "local";
+                //         },
+                //     }
+                // }
             },
             // {
             //     // scssをモジュールとして扱うために、css用のローダー
