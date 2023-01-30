@@ -39,6 +39,17 @@ module.exports = {
                     {
                         loader: "css-loader",
                         options: {
+                            modules: {
+                                mode: "local",
+                                auto: true,
+                                exportGlobals: true,
+                                localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                                localIdentContext: path.resolve( __dirname, "src" ),
+                                localIdentHashSalt: "my-custom-hash",
+                                namedExport: true,
+                                exportLocalsConvention: "camelCase",
+                                exportOnlyLocals: false,
+                            },
                             // url: false,  // false : 画像などのurlは、cssに書いたままが出力される
                             // 特定の画像のみフィルタリングも可能
                             url: {
@@ -47,6 +58,7 @@ module.exports = {
                                     if ( url.includes( "cat.jpg" ) ) {
                                         return false;
                                     }
+                                    console.log( 000000000 )
                                     console.log( url )
                                     return true;
                                 },
@@ -56,13 +68,17 @@ module.exports = {
                                     // resourcePath-cssファイルへのパス
 
                                     // `style.css`インポートを処理しません
-                                    if ( url.includes( "style.css" ) ) {
-                                        return false;
-                                    }
-
+                                    // if ( url.includes( "kuma.css" ) ) {
+                                    //     return false;
+                                    // }
+                                    console.log( 111111 )
+                                    console.log( url ) // @import されたものが入っている
+                                    console.log( 2222222 )
+                                    console.log( resourcePath )// scssのファイルの絶対パスが入っている
                                     return true;
                                 },
                             },
+
                         },
                     },
                     "sass-loader" ],
@@ -71,22 +87,6 @@ module.exports = {
                 //      devMode ? "style-loader" : MiniCssExtractPlugin.loader,
                 //     "css-loader",
                 //     "sass-loader" ]
-                // options: {
-                //     module: {
-                //         mode: ( resourcePath ) => {
-                //             console.log( resourcePath )
-                //             if ( /pure.css$/i.test( resourcePath ) ) {
-                //                 return "pure";
-                //             }
-
-                //             if ( /global.css$/i.test( resourcePath ) ) {
-                //                 return "global";
-                //             }
-
-                //             return "local";
-                //         },
-                //     }
-                // }
             },
             // {
             //     // scssをモジュールとして扱うために、css用のローダー
