@@ -2,3 +2,13 @@
   background: #000;
   color: #ddd;
 }
+
+.ichigo { color: #fdfdfd; } // css moduleでhashバケされる
+
+:local {
+  .aoi { color: green; } // css moduleでhashバケされる
+}
+
+:global {
+  .ran { color: orange; } // <div class="ran">とかいたものに適用
+}

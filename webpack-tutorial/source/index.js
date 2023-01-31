@@ -36,6 +36,10 @@ function App () {
             <h2>h2です</h2>
             <h3 className={ One.one }>h3のOneです</h3>
             <h3 className={ Two.two }>h3のtwoです</h3>
+            <h3 className={ One.ichigo }>いちごです</h3>
+            <h3 className="ichigo">ベタ書きいちごです</h3>
+            <h3 className={ One.aoi }>あおいです</h3>
+            <h3 className="ran">ranです</h3>
             <p className="hungi">ふがです</p>
             <p className="kuma">くまです</p>
             <p className="inu">犬です</p>

@@ -43,6 +43,12 @@ module.exports = {
                                 // auto : 読ませたいcssファイルを選べる。
                                 // resourcePathにはcssファイルの絶対パスが入っている
                                 auto: ( resourcePath ) => resourcePath.endsWith( ".module.css" ),
+
+                                // cssファアイルに記述されているcssをhash化する方法を選べる 
+                                // local = .hoge と、: local{.hugaa { color: green; }}をhash化
+                                // global = :local{.hugaa { color: green; }}だけをhash化 globalの方が話かかりやすい気がする
+                                mode: 'global',
+
                             },
                             // url: false,  // false : 画像などのurlは、cssに書いたままが出力される
                             // 特定の画像のみフィルタリングも可能
