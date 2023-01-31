@@ -40,15 +40,9 @@ module.exports = {
                         loader: "css-loader",
                         options: {
                             modules: {
-                                mode: "local",
-                                auto: true,
-                                exportGlobals: true,
-                                localIdentName: "[path][name]__[local]--[hash:base64:5]",
-                                localIdentContext: path.resolve( __dirname, "src" ),
-                                localIdentHashSalt: "my-custom-hash",
-                                namedExport: true,
-                                exportLocalsConvention: "camelCase",
-                                exportOnlyLocals: false,
+                                // auto : 読ませたいcssファイルを選べる。
+                                // resourcePathにはcssファイルの絶対パスが入っている
+                                auto: ( resourcePath ) => resourcePath.endsWith( ".module.css" ),
                             },
                             // url: false,  // false : 画像などのurlは、cssに書いたままが出力される
                             // 特定の画像のみフィルタリングも可能

@@ -3,7 +3,8 @@ import { render } from "react-dom";
 import { getUsers } from "./common/usersAPI";
 import "./style.css"; // ローダーを設定しないと読み込まない
 import "./style.scss"; // scss用のローダーが必要
-import One from "./One.module.css"; // scss用のローダーが必要
+import One from "./One.module.css"
+import Two from "./Two.module.css"
 import "./kuma.css";
 import moment from "moment"
 import { hello } from "./sub";
@@ -33,7 +34,8 @@ function App () {
             <button onClick={ () => setState( "clicked" ) }>{ state }</button>
             <button onClick={ dynamicImports }>Dynamic imports</button>
             <h2>h2です</h2>
-            <h3 className={ One.one }>h3です</h3>
+            <h3 className={ One.one }>h3のOneです</h3>
+            <h3 className={ Two.two }>h3のtwoです</h3>
             <p className="hungi">ふがです</p>
             <p className="kuma">くまです</p>
             <p className="inu">犬です</p>
