@@ -6,7 +6,8 @@
 .ichigo { color: #fdfdfd; } // css moduleでhashバケされる
 
 :local {
-  .aoi { color: green; } // css moduleでhashバケされる
+  .aoi { color: blue;
+  background:#ff33cc; } // css moduleでhashバケされる
 }
 
 :global {

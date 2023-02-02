@@ -5,6 +5,7 @@ import "./style.css"; // ローダーを設定しないと読み込まない
 import "./style.scss"; // scss用のローダーが必要
 import One from "./One.module.css"
 import Two from "./Two.module.css"
+import Three from "./Three.css"
 import "./kuma.css";
 import moment from "moment"
 import { hello } from "./sub";
@@ -43,6 +44,7 @@ function App () {
             <p className="hungi">ふがです</p>
             <p className="kuma">くまです</p>
             <p className="inu">犬です</p>
+            <p className={ Three.threeded }>Three</p>
         </div>
     )
 }

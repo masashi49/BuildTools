@@ -1,0 +1,14 @@
+.three {
+  background: #000;
+  color: #ddd;
+}
+
+.banana { color: #fdfdfd; }
+
+:local {
+  .threeded { color: green; }
+}
+
+:global {
+  .work { color: orange; }
+}

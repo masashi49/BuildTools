@@ -41,14 +41,33 @@ module.exports = {
                         options: {
                             modules: {
                                 // auto : 読ませたいcssファイルを選べる。
-                                // resourcePathにはcssファイルの絶対パスが入っている
-                                auto: ( resourcePath ) => resourcePath.endsWith( ".module.css" ),
+                                // resourcePathにはcssファイルの絶対パスが入っている 一致するものはtrue
+                                auto: ( resourcePath ) => resourcePath.endsWith( ".css" ),
 
                                 // cssファアイルに記述されているcssをhash化する方法を選べる 
                                 // local = .hoge と、: local{.hugaa { color: green; }}をhash化
                                 // global = :local{.hugaa { color: green; }}だけをhash化 globalの方が話かかりやすい気がする
                                 mode: 'global',
+                                getLocalIdent: ( context, localIdentName, localName, options ) => {
+                                    console.log( 333333 )
+                                    console.log( context )
+                                    console.log( 44444444 )
+                                    console.log( localIdentName ) // デフオルトでは [hash:base64]
+                                    console.log( 55555 )
+                                    console.log( localName ) // :localに指定されている(スコープされている)名前が入る
+                                    console.log( 6666666 )
+                                    console.log( options )
 
+                                    if ( localName === 'aoi' ) { // 特定のclass名をカスタマイズ
+                                        return "kuroi"
+                                    }
+
+                                    return "whatever_random_class_name";
+                                },
+                                // localIdentHashFunction: "md4",
+                                localIdentHashDigest: "base64",
+                                localIdentHashDigestLength: 5, // hash値の長さ
+                                hashStrategy: "minimal-subset", //ハッシュから識別子名を省略できるか自動検出
                             },
                             // url: false,  // false : 画像などのurlは、cssに書いたままが出力される
                             // 特定の画像のみフィルタリングも可能
