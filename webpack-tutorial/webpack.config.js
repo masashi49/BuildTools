@@ -39,7 +39,9 @@ module.exports = {
                     {
                         loader: "css-loader",
                         options: {
+
                             modules: {
+                                exportOnlyLocals: true, // SSRでcssモジュールを使用する場合に使用する、そうでない場合は削除しておく。if分でサーバーを判別する必要がある?
                                 // auto : 読ませたいcssファイルを選べる。
                                 // resourcePathにはcssファイルの絶対パスが入っている 一致するものはtrue
                                 auto: ( resourcePath ) => resourcePath.endsWith( ".css" ),
