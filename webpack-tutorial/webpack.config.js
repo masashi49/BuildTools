@@ -34,14 +34,17 @@ module.exports = {
                 use: [
                     // オブジェクトにする必要がある
                     {
-                        loader: MiniCssExtractPlugin.loader, // cssを別ファイルにする
+                        loader: MiniCssExtractPlugin.loader, // cssを別ファイルにする style-loaderと併用してはいけない。
                     },
                     {
                         loader: "css-loader",
                         options: {
+                            sourceMap: true,
+                            esModule: false,
 
                             modules: {
-                                exportOnlyLocals: true, // SSRでcssモジュールを使用する場合に使用する、そうでない場合は削除しておく。if分でサーバーを判別する必要がある?
+
+                                //exportOnlyLocals: true, // SSRでcssモジュールを使用する場合に使用する、そうでない場合は削除しておく。if分でサーバーを判別する必要がある?
                                 // auto : 読ませたいcssファイルを選べる。
                                 // resourcePathにはcssファイルの絶対パスが入っている 一致するものはtrue
                                 auto: ( resourcePath ) => resourcePath.endsWith( ".css" ),
@@ -103,6 +106,8 @@ module.exports = {
                         },
                     },
                     "sass-loader" ],
+
+
                 // buildが本番なら、cssをjsから抜き出すならこうする
                 //  use: [
                 //      devMode ? "style-loader" : MiniCssExtractPlugin.loader,
